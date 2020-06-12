@@ -8,7 +8,8 @@ load_dotenv("./secrets/.env")
 client = commands.Bot(command_prefix="!")
 
 cogs = [
-    "cogs.general"
+    "cogs.general",
+    "cogs.createtopic"
 ]
 
 for cog in cogs:
