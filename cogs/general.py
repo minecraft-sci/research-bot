@@ -1,3 +1,6 @@
+import utils.savestats as stats
+import utils.cfl as cfl
+
 import discord
 from discord.ext import commands
 import time
