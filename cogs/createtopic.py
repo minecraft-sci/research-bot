@@ -6,7 +6,7 @@ class createtopic(commands.Cog):
     def __init__(self, client):
         self.client = client
     
-    # commands 
+    @commands.has_any_role("Administrator")
     @commands.command()
     async def createtopic(self, ctx, topic):
         """ Creates new topic Category """
