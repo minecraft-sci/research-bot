@@ -6,8 +6,8 @@ class createtopic(commands.Cog):
     def __init__(self, client):
         self.client = client
     
-    @commands.has_any_role("Administrator")
     @commands.command()
+    @commands.has_any_role("Administrator")
     async def createtopic(self, ctx, topic):
         """ Creates new topic Category """
         roleeveryone = discord.utils.get(ctx.guild.roles, name = "@everyone")
