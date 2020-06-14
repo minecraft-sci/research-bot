@@ -12,7 +12,8 @@ cogs = [
     "cogs.createtopic",
     "cogs.api",
     "cogs.tos",
-    "cogs.maze"
+    "cogs.maze",
+    "cogs.version"
 ]
 
 for cog in cogs:
