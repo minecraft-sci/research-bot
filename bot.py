@@ -11,7 +11,8 @@ cogs = [
     "cogs.general",
     "cogs.createtopic",
     "cogs.api",
-    "cogs.tos"
+    "cogs.tos",
+    "cogs.maze"
 ]
 
 for cog in cogs:
