@@ -1,37 +1,24 @@
 from discord.ext import commands
 import discord
 import random
-
-class Random:
-    def __init__(self, seed=6846518675):
-        # initialize the math
-        self.seed = seed
-        self.PSeed = seed
-
-    def next(self):
-        # calculate the math
-        self.seed = (self.PSeed * self.seed + 11) % 2**48
-        return(self.seed)
-
-    def randint(self, max):
-        return self.next() % 100
-
 class Maze(commands.Cog):
 	def __init__(self, bot):
-        # we set the rng
-		self.rng = Random()
+		self.rng = random
 		self.bot = bot
-		self.enabled = False
+        # we define the enablement toggle
+		self.enabled = True
 		self.mid = [373946864531144726]
 
 	@commands.Cog.listener()
 	async def on_message(self, ctx):
 		if ctx.author.id in self.mid and self.enabled:
-			if self.rng.randint(100) == 69:
+            # here it go brrrr
+			if self.rng.randint(0,100) == 42:
 				await ctx.channel.send(f"Fuck you {ctx.author.mention}")
+			if self.rng.randint(0,100) == 69:
+				await ctx.channel.send(f"Do you like Alex Dillinger {ctx.author.mention}")
 
-	@commands.has_any_role("Moderator", "Administrator", "Big Brain")
-	@commands.command(name='togglemaze')
+	@commands.command(name='togglemaze') # What is the point in commands.has_any_role if it checks by id anyway?
 	async def togglemaze(self, ctx):
 		if ctx.author.id in self.mid or ctx.author.id == 383931730211504128 or ctx.author.id == 297045071457681409: # haha my id go brrrrr
 			self.enabled = not self.enabled
