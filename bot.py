@@ -10,7 +10,8 @@ client = commands.Bot(command_prefix="!")
 cogs = [
     "cogs.general",
     "cogs.createtopic",
-    "cogs.api"
+    "cogs.api",
+    "cogs.tos"
 ]
 
 for cog in cogs:
