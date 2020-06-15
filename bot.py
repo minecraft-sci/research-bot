@@ -12,6 +12,7 @@ cogs = [
     "cogs.createtopic",
     "cogs.api",
     "cogs.tos",
+    "cogs.tosemoji",
     "cogs.maze"
 ]
 
