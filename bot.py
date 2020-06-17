@@ -6,6 +6,7 @@ import os
 load_dotenv("./secrets/.env")
 
 client = commands.Bot(command_prefix="!")
+client.remove_command("help")
 
 cogs = [
     "cogs.general",
