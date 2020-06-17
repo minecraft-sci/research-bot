@@ -32,9 +32,10 @@ class whitelist(commands.Cog):
                 resp = mcr.command(f"whitelist add {name}")
                 print(resp)
                 await ctx.send(f"Done: {resp}")
-                json_data = cfl.getConfigList("data/whitelist.json")
-                json_data.append({"name":name, "user":str(discord), "sender":ctx.author.id})
-                cfl.setConfigList(json_data, "data/whitelist.json")
+                if resp.lower() == f"Added {name} to the whitelist":
+                    json_data = cfl.getConfigList("data/whitelist.json")
+                    json_data.append({"name":name, "user":str(discord), "sender":ctx.author.id})
+                    cfl.setConfigList(json_data, "data/whitelist.json")
         else:
             await ctx.send("No name/discordtag were given !rcon whitelist <NAME> <discordtag>", delete_after=8)
 
