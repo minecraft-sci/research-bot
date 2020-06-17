@@ -13,6 +13,7 @@ cogs = [
     "cogs.api",
     "cogs.tos",
     "cogs.tosemoji",
+    "cogs.whitelist",
     "cogs.maze"
 ]
 
