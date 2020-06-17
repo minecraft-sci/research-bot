@@ -12,7 +12,6 @@ client.remove_command("help")
 cogs = [
     "cogs.general",
     "cogs.createtopic",
-    "cogs.api",
     "cogs.tos",
     "cogs.tosemoji",
     "cogs.maze"
