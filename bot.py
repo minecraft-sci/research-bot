@@ -37,9 +37,9 @@ async def reload(ctx):
 
 @client.command()
 @commands.has_any_role("Moderator", "Administrator")
-async def restart(self, ctx):
+async def restart(ctx):
     """ Restart the bot """
-    await self.bot.close()
+    await client.close()
     os.system('echo "sleep 10; kill $PPID" |at now')
     exit(69)
 
