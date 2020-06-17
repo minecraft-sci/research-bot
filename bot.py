@@ -14,6 +14,7 @@ cogs = [
     "cogs.createtopic",
     "cogs.tos",
     "cogs.tosemoji",
+    "cogs.whitelist",
     "cogs.maze"
 ]
 
