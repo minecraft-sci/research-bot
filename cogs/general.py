@@ -12,7 +12,8 @@ class General(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.bot.change_presence(activity=discord.Game(name="on Minecraft@Home"))
+        guild = self.bot.get_guild(721776113348640869)
+        await self.bot.change_presence(activity=discord.Game(name=f"{guild.member_count} users"))
 
     @commands.command(name="info")
     @commands.has_any_role("Member", "Moderator", "Administrator")
