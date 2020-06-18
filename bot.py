@@ -15,7 +15,8 @@ cogs = [
     "cogs.tos",
     "cogs.tosemoji",
     "cogs.whitelist",
-    "cogs.maze"
+    "cogs.maze",
+    "cogs.faq"
 ]
 
 for cog in cogs:
