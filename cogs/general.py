@@ -12,7 +12,7 @@ class General(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.bot.change_presence(activity=discord.Game(name="on Minecraft Research"))
+        await self.bot.change_presence(activity=discord.Game(name="on Minecraft@Home"))
 
     @commands.command(name="info")
     @commands.has_any_role("Member", "Moderator", "Administrator")
