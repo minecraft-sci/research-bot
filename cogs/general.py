@@ -12,7 +12,10 @@ class General(commands.Cog):
 
     async def presence_update(self):
         guild = self.bot.get_guild(720723932738486323)
-        await self.bot.change_presence(activity=discord.Game(name=f"{guild.member_count} users"))
+        if guild:
+            await self.bot.change_presence(activity=discord.Game(name=f"{guild.member_count} users"))
+            return
+        await self.bot.change_presence(activity=discord.Game(name="Minecraft@Home"))
 
     @commands.Cog.listener()
     async def on_ready(self):
