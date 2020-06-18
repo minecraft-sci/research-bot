@@ -10,10 +10,21 @@ class General(commands.Cog):
         self.bot = bot
         self.initTime = round(time.time())
 
-    @commands.Cog.listener()
-    async def on_ready(self):
+    async def presence_update(self):
         guild = self.bot.get_guild(720723932738486323)
         await self.bot.change_presence(activity=discord.Game(name=f"{guild.member_count} users"))
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        await self.presence_update()
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        await self.presence_update()
+
+    @commands.Cog.listener()
+    async def on_member_leave(self, member):
+        await self.presence_update()
 
     @commands.command(name="info")
     @commands.has_any_role("Member", "Moderator", "Administrator")
