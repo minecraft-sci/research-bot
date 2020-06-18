@@ -12,7 +12,7 @@ class General(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        guild = self.bot.get_guild(721776113348640869)
+        guild = self.bot.get_guild(720723932738486323)
         await self.bot.change_presence(activity=discord.Game(name=f"{guild.member_count} users"))
 
     @commands.command(name="info")
