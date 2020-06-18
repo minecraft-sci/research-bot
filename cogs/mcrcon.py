@@ -13,8 +13,6 @@ class whitelist(commands.Cog):
         self.sqlitecurs = self.sqlitecon.cursor()
 
 
-
-
     def hasWhitelisted(self, userid):
         self.sqlitecurs.execute("SELECT * FROM whitelist WHERE discorduser = ? AND valid = 1;", (userid,))
         for r in self.sqlitecurs.fetchall():
@@ -76,6 +74,7 @@ class whitelist(commands.Cog):
             self.sqlitecurs.execute("SELECT * FROM whitelist WHERE (discorduser = ? OR ign = ?) AND valid = ?;", (user,user,active, ))
         await ctx.send(f"```{self.sqlitecurs.fetchall()[0:1900]}```")
 
+	
     @commands.command()
     @commands.has_any_role("Administrator", "Moderator", "Big Brain")
     async def mcop(self, ctx, name=None):
