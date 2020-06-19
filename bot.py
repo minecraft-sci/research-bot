@@ -16,7 +16,8 @@ cogs = [
     "cogs.tosemoji",
     "cogs.mcrcon",
     "cogs.maze",
-    "cogs.faq"
+    "cogs.faq",
+    "cogs.serverstatus"
 ]
 
 for cog in cogs:
