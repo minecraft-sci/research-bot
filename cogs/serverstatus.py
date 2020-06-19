@@ -10,7 +10,7 @@ class Status(commands.Cog):
     async def status(self, ctx, server='5.230.25.118:23456'):
         ''' Query the status, ping, and user count of a given server '''
         try:
-            svr = MinecraftServer.lookup('5.230.25.118:23456')
+            svr = MinecraftServer.lookup(server)
             status = svr.status()
             embed = discord.Embed(title="Server Status", description=f"Server status for {server}")
             embed.add_field(name="Status", value=f"There are {status.players.online} players online right now.")
