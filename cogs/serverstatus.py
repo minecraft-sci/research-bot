@@ -7,7 +7,7 @@ class Status(commands.Cog):
         self.bot = bot
 
     @commands.command(name="status")
-    async def status(self, ctx, server='5.230.25.118:23456'):
+    async def status(self, ctx, server='recreation.mcresear.ch'):
         ''' Query the status, ping, and user count of a given server '''
         try:
             svr = MinecraftServer.lookup(server)
