@@ -40,7 +40,7 @@ class General(commands.Cog):
         embed.add_field(name="Uptime", value=f"{hours} hours, {minutes} minutes, {seconds} seconds")
         version = cfl.getConfigAttribute("version", "static_data/version-inf.json")
         rel_type = cfl.getConfigAttribute("release", "static_data/version-inf.json")
-        embed.add_field(name="Version", value=f"{version} {rel_type}")
+        embed.add_field(name="Version", value=f"{rel_type} {version}")
         await ctx.channel.send(embed=embed)
 
 def setup(bot):
