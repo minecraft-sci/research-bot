@@ -38,6 +38,9 @@ class General(commands.Cog):
         minutes = (uptime - (hours * 3600)) // 60
         seconds = uptime - (hours * 3600 + minutes * 60)
         embed.add_field(name="Uptime", value=f"{hours} hours, {minutes} minutes, {seconds} seconds")
+        version = cfl.getConfigAttribute("version", "static_data/version-inf.json")
+        rel_type = cfl.getConfigAttribute("release", "static_data/version-inf.json")
+        embed.add_field(name="Version", value=f"{version} {rel_type}")
         await ctx.channel.send(embed=embed)
 
 def setup(bot):
