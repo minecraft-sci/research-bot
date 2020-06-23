@@ -39,7 +39,7 @@ class Faq(commands.Cog):
             faq_data = cfl.getConfigList("data/faq.json")
             data = "FAQ Commands:```"
             for i in faq_data:
-                data += i["names"][0]
+                data += i["names"][0] + "\n"
             await ctx.channel.send(f"{data}```")
 
     @commands.group(name="faqmod")
