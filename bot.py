@@ -17,6 +17,7 @@ cogs = [
     "cogs.mcrcon",
     "cogs.maze",
     "cogs.faq",
+    "cogs.maths",
     "cogs.serverstatus"
 ]
 
