@@ -33,10 +33,14 @@ class Faq(commands.Cog):
         if subcommand == None:
             pass
         faq_item = self.fetch_faq_item(subcommand)
-        if not faq_item:
-            await ctx.channel.send("Invalid FAQ command. Type `!faq` for a list of commands.")
-        else:
+        if faq_item:
             await ctx.channel.send(faq_item["content"])
+        else:
+            faq_data = cfl.getConfigList("data/faq.json")
+            data = "FAQ Commands:```"
+            for i in faq_data:
+                data += i["names"][0]
+            await ctx.channel.send(f"{data}```")
 
     @commands.group(name="faqmod")
     @commands.has_any_role("Administrator", "Moderator")
