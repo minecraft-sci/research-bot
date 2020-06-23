@@ -5,7 +5,8 @@ class Maths(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="=")
+    @commands.command(name="=", aliases=["eval"])
+    @commands.has_any_role("Moderator", "Administrator")
     async def evaulate(self, ctx, *expr):
         expr = " ".join(expr)
         try:
