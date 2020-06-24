@@ -10,6 +10,7 @@ client = commands.Bot(command_prefix="!")
 client.remove_command("help")
 
 cogs = [
+    "cogs.moderation",
     "cogs.general",
     "cogs.createtopic",
     "cogs.tos",
