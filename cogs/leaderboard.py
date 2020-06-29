@@ -43,7 +43,7 @@ class Leaderboard(commands.Cog):
         for a, b, c in Query().getLeaderboards():
             if d < 12:
                 d += 1
-                embed.add_field(name=f"{d+1}) {a[1:]}", value=f"Recent average: {b}\nTotal Credit: {c}")
+                embed.add_field(name=f"{d}) {a[1:]}", value=f"Recent average: {b}\nTotal Credit: {c}")
         await ctx.channel.send(embed=embed)
 
 
