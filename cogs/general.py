@@ -54,6 +54,7 @@ class General(commands.Cog):
             await ctx.channel.send("Disabled automatic status updates.")
         elif operation == "enable":
             self.presence = True
+            await self.presence_update()
             await ctx.channel.send("Enabled automatic status updates.")
         elif operation == "query":
             stat = "enabled" if self.presence else "disabled"
