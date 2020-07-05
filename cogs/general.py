@@ -8,14 +8,16 @@ import time
 class General(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+        self.presence = True
         self.initTime = round(time.time())
 
     async def presence_update(self):
-        guild = self.bot.get_guild(720723932738486323)
-        if guild:
-            await self.bot.change_presence(activity=discord.Game(name=f"with {guild.member_count} users"))
-            return
-        await self.bot.change_presence(activity=discord.Game(name="Minecraft@Home"))
+        if self.presence:
+            guild = self.bot.get_guild(720723932738486323)
+            if guild:
+                await self.bot.change_presence(activity=discord.Game(name=f"with {guild.member_count} users"))
+                return
+            await self.bot.change_presence(activity=discord.Game(name="Minecraft@Home"))
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -42,6 +44,22 @@ class General(commands.Cog):
         rel_type = cfl.getConfigAttribute("release", "static_data/version-inf.json")
         embed.add_field(name="Version", value=f"{rel_type} {version}")
         await ctx.channel.send(embed=embed)
+
+    @commands.command("status")
+    @commands.has_any_role("Moderator", "Administrator")
+    async def status(self, ctx, operation, *value):
+        value = " ".join(value)
+        if operation == "disable":
+            self.presence = False
+            await ctx.channel.send("Disabled automatic status updates.")
+        elif operation == "enable":
+            self.presence = True
+            await ctx.channel.send("Enabled automatic status updates.")
+        elif operation == "query":
+            stat = "enabled" if self.presence else "disabled"
+            await ctx.channel.send(f"Automatic status updates are {stat}.")
+        elif operation == "update" or operation == "set":
+            await self.bot.change_presence(activity=discord.Game(name=value))
 
 def setup(bot):
     bot.add_cog(General(bot))
