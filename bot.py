@@ -15,7 +15,7 @@ cogs = [
     "cogs.createtopic",
     "cogs.tos",
     "cogs.tosemoji",
-    "cogs.mcrcon",
+    #"cogs.mcrcon",
     "cogs.maze",
     "cogs.faq",
     "cogs.serverstatus",
