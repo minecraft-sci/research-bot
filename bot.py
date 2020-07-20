@@ -19,7 +19,8 @@ cogs = [
     "cogs.maze",
     "cogs.faq",
     "cogs.serverstatus",
-    "cogs.leaderboard"
+    "cogs.leaderboard",
+    "cogs.credit"
 ]
 
 for cog in cogs:
