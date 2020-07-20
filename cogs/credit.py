@@ -113,6 +113,20 @@ class Credit(commands.Cog):
             with Path(f"./data/proj_{project}.json").open() as f:
                 await ctx.channel.send(file=discord.File(f, filename="contributors.json"))
 
+    @credit.command(name="user")
+    async def cuser(self, ctx, project, user: discord.Member = None):
+        if not Path(f"./data/proj_{project}.json").exists():
+            await ctx.channel.send("The project name you have entered is invalid!")
+            return
+        if not user:
+            user = ctx.author
+        data = self.get_user(user.id, project)
+        embed = discord.Embed(title="User Crediting", description=f"Report for {user}")
+        embed.add_field(name="Top Contribution", value=data["main_contribution"]) if data["main_contribution"] else None
+        contribs = "\n".join(data["contributions"])
+        embed.add_field(name="Contributions", value=contribs) if contribs else None
+        await ctx.channel.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Credit(bot))
