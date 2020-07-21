@@ -49,7 +49,7 @@ class SeedUtils(commands.Cog):
         except:
             await ctx.channel.send("Invalid seed")
 
-    @commands.command(name="sisterseed", aliases=["sis"])
+    @commands.command(name="shadowseed", aliases=["sis", "shadow"])
     @commands.has_any_role("Administrator", "Moderator", "Big Brain")
     async def sisterseed(self, ctx, theseed):
         def modInverse(a, k):
