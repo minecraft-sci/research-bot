@@ -21,6 +21,7 @@ cogs = [
     "cogs.faq",
     "cogs.serverstatus",
     "cogs.leaderboard",
+    "cogs.seedutils",
     "cogs.credit"
 ]
 
