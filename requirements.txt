@@ -5,3 +5,4 @@ mcrcon
 mcstatus
 bs4
 requests
+pyourls3
