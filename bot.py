@@ -22,6 +22,7 @@ cogs = [
     "cogs.serverstatus",
     "cogs.leaderboard",
     "cogs.seedutils",
+    "cogs.lshort",
     "cogs.credit"
 ]
 
