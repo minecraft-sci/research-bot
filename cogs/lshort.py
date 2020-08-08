@@ -17,7 +17,11 @@ class lshort(commands.Cog):
             if (short == None):
                 surl = self.yourls.shorten(url)
             else:
-                surl = self.yourls.shorten(url, keyword=short)
+                if url.startswith("https://mcatho.me") or url.startswith("http://mcatho.me") or url.startswith("mcatho.me"):
+                    await ctx.send("I refuse to do that because you are stupid!")
+                    return
+                else:
+                    surl = self.yourls.shorten(url, keyword=short)
             await ctx.send("URL got shorten:\nLong URL:```"+surl['url']['url']+"```Short URL:```"+surl['shorturl']+"```")
         except:
             await ctx.send("The keyword probably already exists! `"+short+"`", delete_after=10)
@@ -31,7 +35,7 @@ class lshort(commands.Cog):
             await ctx.send("General link statistics:\nTotal Links: ```"+urls['total_links']+"```Total Clicks:```"+urls['total_clicks']+"```")
         else:
             urls = self.yourls.url_stats(url)
-            await ctx.send("Stats for shortened URL:```"+urls['shorturl']+"```Long URL:```"+urls['url']+"```Klicks:```"+urls['clicks']+"```Created:```"+urls['timestamp']+"```")
+            await ctx.send("Stats for shortened URL:```"+urls['shorturl']+"```Long URL:```"+urls['url']+"```Clicks:```"+urls['clicks']+"```Created:```"+urls['timestamp']+"```")
 
 def setup(client):
     client.add_cog(lshort(client))
