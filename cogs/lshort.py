@@ -31,7 +31,7 @@ class lshort(commands.Cog):
             await ctx.send("General link statistics:\nTotal Links: ```"+urls['total_links']+"```Total Clicks:```"+urls['total_clicks']+"```")
         else:
             urls = self.yourls.url_stats(url)
-            await ctx.send("Stats for shortened URL:```"+urls['shorturl']+"```Long URL:```"+urls['url']+"```Klicks:```"+urls['clicks']+"```Created:```"+urls['timestamp']+"```")
+            await ctx.send("Stats for shortened URL:```"+urls['shorturl']+"```Long URL:```"+urls['url']+"```Clicks:```"+urls['clicks']+"```Created:```"+urls['timestamp']+"```")
 
 def setup(client):
     client.add_cog(lshort(client))
