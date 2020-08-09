@@ -12,8 +12,8 @@ class moderation(commands.Cog):
         if (720725754605994087 in [y.id for y in message.author.roles]) or (720725702516932658 in [y.id for y in message.author.roles]) or message.author == self.bot.user:
             pass
         else:
-            if "discord.gg/" in message.content:
-                await message.delete() 
+            if any(x in message.content for x in ['discord.gg/','discord.com/invite/','discordapp.com/invite/']):
+                await message.delete()
 
 
 def setup(bot):
