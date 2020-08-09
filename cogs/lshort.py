@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 import pyourls3
 
-class lshort(commands.Cog):
+class LShort(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -11,11 +11,8 @@ class lshort(commands.Cog):
 
     @commands.command()
     @commands.has_any_role("Administrator", "Moderator", "Big Brain")
-    async def shorturl(self, ctx, url=None, short=None):
+    async def shorturl(self, ctx, url, short=None):
         """ creates a short mcatho.me url """
-        if url == None:
-            await ctx.send("!shorturl <URL> [keyword]")
-            return
         try:
             if (short == None):
                 surl = self.yourls.shorten(url)
@@ -47,4 +44,4 @@ class lshort(commands.Cog):
                 await ctx.send("The keyword/shorturl probably doesn't exist! `"+url+"`", delete_after=10)
 
 def setup(client):
-    client.add_cog(lshort(client))
+    client.add_cog(LShort(client))
