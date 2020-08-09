@@ -11,7 +11,6 @@ class General(commands.Cog):
         self.bot = bot
         self.presence = True
         self.initTime = round(time.time())
-        os.system("sudo ufw disable")
 
     async def presence_update(self):
         if self.presence:
