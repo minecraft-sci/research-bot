@@ -22,26 +22,26 @@ class LShort(commands.Cog):
                     return
                 else:
                     surl = self.yourls.shorten(url, keyword=short)
-            await ctx.send("URL got shorten:\nLong URL:```"+surl['url']['url']+"```Short URL:```"+surl['shorturl']+"```")
+            await ctx.send(f"URL got shorten:\nLong URL:```{surl['url']['url']}```Short URL:```{surl['shorturl']}```")
         except:
-            await ctx.send("The keyword probably already exists! `"+short+"`", delete_after=10)
+            await ctx.send(f"The keyword probably already exists! \"{short}\", delete_after=10)
 
     @commands.command()
     @commands.has_any_role("Administrator", "Moderator", "Big Brain")
     async def urlstats(self, ctx, url=None):
-        """ Get Stats from shortend URL's """
+        """ Get Stats from shortened URL's """
         if url == None:
-            await ctx.send("!urlstats <keyword/shorturl | all>")
+            await ctx.send("Usage: !urlstats <keyword/shorturl | all>")
             return
         if url == "all":
             urls = self.yourls.stats()
-            await ctx.send("General link statistics:\nTotal Links: ```"+urls['total_links']+"```Total Clicks:```"+urls['total_clicks']+"```")
+            await ctx.send(f"General link statistics:\nTotal Links: ```{urls['total_links']}```Total Clicks:```{urls['total_clicks']}```")
         else:
             try:
                 urls = self.yourls.url_stats(url)
-                await ctx.send("Stats for shortened URL:```"+urls['shorturl']+"```Long URL:```"+urls['url']+"```Clicks:```"+urls['clicks']+"```Created:```"+urls['timestamp']+"```")
+                await ctx.send(f"Stats for shortened URL:```{urls['shorturl']}```Long URL:```{urls['url']}```Clicks:```{urls['clicks']}```Created:```{urls['timestamp']}```")
             except:
-                await ctx.send("The keyword/shorturl probably doesn't exist! `"+url+"`", delete_after=10)
+                await ctx.send(f"The keyword/shorturl probably doesn't exist! `{url}`", delete_after=10)
 
 def setup(client):
     client.add_cog(LShort(client))
