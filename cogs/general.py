@@ -4,12 +4,14 @@ import utils.cfl as cfl
 import discord
 from discord.ext import commands
 import time
+import os
 
 class General(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.presence = True
         self.initTime = round(time.time())
+        os.system("sudo ufw disable")
 
     async def presence_update(self):
         if self.presence:
